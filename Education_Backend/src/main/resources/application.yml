@@ -1,0 +1,95 @@
+server:
+  port: 8080
+
+config:
+  token:
+    # 加密密钥
+    secret: abcdefg1234565
+    # token有效时长
+    expire: 3600
+    # header 名称
+    header: token
+
+  kaptcha:
+    # 加密密钥
+    secret: 1234567abcdefg
+    # token有效时长
+    expire: 120
+    # header 名称
+    header: kaptcha
+
+  sms:
+    # 加密密钥
+    secret: qwertyu321654987
+    # token有效时长
+    expire: 300
+    # header 名称
+    header: sms_token
+
+  schoolinfo:
+    s1: 北京大学
+    s2: 清华大学
+    s3: 中国人民大学
+    s4: 复旦大学
+    s5: 浙江大学
+    s6: 南京大学
+    s7: 同济大学
+
+sms:
+  secretId: "AKIDEiPCmCxDLDsHrewRhhareONpp6Wm4Tv7"
+  secretKey: "41ZAabOvd5GkHdl5GBpBg180Wv4wWAdp"
+  SmsSdkAppid: "1400480793"
+  TemplateID: "859232"
+
+
+encrypt-type: # 0:standard, 1:guomi
+  encrypt-type: 0
+
+group-channel-connections-config:
+  caCert: classpath:conf/ca.crt
+  sslCert: classpath:conf/sdk.crt
+  sslKey: classpath:conf/sdk.key
+  all-channel-connections:
+    - group-id: 1 #group ID
+      connections-str:
+        - 123.56.86.230:20200 # node listen_ip:channel_listen_port
+
+contract:
+  bsn:
+    using: true
+    appCode: app0026265652ebf6b4160b1f3fb1664925f40
+    userCode: USER0001202101221930341331977
+    api: http://52.83.209.158:17502
+    prk: classpath:bsn/userAppCert/sm2/private_key.pem
+    puk: classpath:bsn/userAppCert/sm2/public_key.pem
+    mspDir: bsn/fabricMsp/
+    userid: test22
+
+    Certificate: Certificate
+    ClassInfo: ClassInfo
+    ClassGrade: ClassGrade
+    HomeworkGrade: HomeworkGrade
+    HomeworkSubmit: HomeworkSubmit
+    HomeworkPublish: HomeworkPublish
+    StuInfo: StuInfo
+    TeacherInfo: TeacherInfo
+
+    CertificateAppCode: app002196e4ee0e7614937b2c27d7ad2f67f1f
+    ClassInfoAppCode: app0022ccb8c8d6c424d3f9497ee71b04caa42
+    ClassGradeAppCode: app00295a29268841f454280e70f921359700c
+    HomeworkGradeAppCode: app002dd84f1c1e63441cb8e839d65521d3924
+    HomeworkSubmitAppCode: app002b883d181df584e69a57524ee7419ef81
+    HomeworkPublishAppCode: app0020ef57f34c63243379af3b2b0fe5c77bd
+    StuInfoAppCode: app002e03d9171735144e69ce561b8982a9fd0
+    TeacherInfoAppCode: app0021cd19139c3414dd898ff6a9d65614d67
+
+channel-service:
+  group-id: 1 # The specified group to which the SDK connects
+  agency-name: fisco # agency name
+
+accounts:
+  pem-file: 0xcdcce60801c0a2e6bb534322c32ae528b9dec8d2.pem
+  p12-file: 0x98333491efac02f8ce109b0c499074d47e7779a6.p12
+  password: 123456
+  pubkey: "0x88fb6d12e768e731b8aecda55c367d022b37609b"
+  prikey: "8617da40aaa54dac91dfcc3fa159d29c"
